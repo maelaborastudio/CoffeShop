@@ -1,0 +1,828 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Brew &amp; Bean - Premium Coffee</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#bd580f",
+              secondary: "#181411",
+              accent: "#f4f2f0",
+              "background-light": "#fdfbf7",
+              "background-dark": "#221810",
+            },
+            fontFamily: {
+              display: ["Work Sans", "Noto Sans", "sans-serif"],
+              body: ["Work Sans", "Noto Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              "2xl": "1rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-secondary dark:text-gray-100 font-display antialiased selection:bg-primary selection:text-white transition-colors duration-300"
+  >
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+      <!-- Header -->
+      <header
+        class="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-accent dark:border-gray-700 transition-colors duration-300"
+      >
+        <div
+          class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
+        >
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-3xl"
+              >local_cafe</span
+            >
+            <h2
+              class="text-xl font-bold tracking-tight text-secondary dark:text-white"
+            >
+              Brew &amp; Bean
+            </h2>
+          </div>
+          <nav class="hidden md:flex items-center gap-8">
+            <a
+              class="text-sm font-medium text-secondary dark:text-gray-300 hover:text-primary transition-colors"
+              href="#"
+              >Home</a
+            >
+            <a
+              class="text-sm font-medium text-secondary dark:text-gray-300 hover:text-primary transition-colors"
+              href="#menu"
+              >Menu</a
+            >
+            <a
+              class="text-sm font-medium text-secondary dark:text-gray-300 hover:text-primary transition-colors"
+              href="#philosophy"
+              >Story</a
+            >
+            <a
+              class="text-sm font-medium text-secondary dark:text-gray-300 hover:text-primary transition-colors"
+              href="#locations"
+              >Locations</a
+            >
+          </nav>
+          <div class="flex items-center gap-4">
+            <button
+              id="darkModeToggle"
+              class="flex items-center justify-center rounded-full p-2 text-secondary dark:text-gray-300 hover:bg-accent dark:hover:bg-gray-700 transition-colors"
+              aria-label="Toggle dark mode"
+            >
+              <span class="material-symbols-outlined dark-icon hidden"
+                >dark_mode</span
+              >
+              <span class="material-symbols-outlined light-icon"
+                >light_mode</span
+              >
+            </button>
+            <button
+              class="hidden md:flex items-center justify-center rounded-full bg-primary px-5 py-2 text-sm font-bold text-white shadow-sm hover:bg-primary/90 transition-colors"
+            >
+              Order Online
+            </button>
+            <button
+              id="mobileMenuToggle"
+              class="md:hidden p-2 text-secondary dark:text-gray-300"
+              aria-label="Toggle mobile menu"
+            >
+              <span class="material-symbols-outlined menu-open-icon">menu</span>
+              <span class="material-symbols-outlined menu-close-icon hidden"
+                >close</span
+              >
+            </button>
+          </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div
+          id="mobileMenu"
+          class="hidden md:hidden border-t border-accent dark:border-gray-700 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm"
+        >
+          <nav class="flex flex-col px-4 py-4 space-y-1">
+            <a
+              class="mobile-nav-link block rounded-lg px-4 py-3 text-base font-medium text-secondary dark:text-gray-200 hover:bg-accent dark:hover:bg-gray-700 hover:text-primary transition-colors"
+              href="#"
+              >Home</a
+            >
+            <a
+              class="mobile-nav-link block rounded-lg px-4 py-3 text-base font-medium text-secondary dark:text-gray-200 hover:bg-accent dark:hover:bg-gray-700 hover:text-primary transition-colors"
+              href="#menu"
+              >Menu</a
+            >
+            <a
+              class="mobile-nav-link block rounded-lg px-4 py-3 text-base font-medium text-secondary dark:text-gray-200 hover:bg-accent dark:hover:bg-gray-700 hover:text-primary transition-colors"
+              href="#philosophy"
+              >Story</a
+            >
+            <a
+              class="mobile-nav-link block rounded-lg px-4 py-3 text-base font-medium text-secondary dark:text-gray-200 hover:bg-accent dark:hover:bg-gray-700 hover:text-primary transition-colors"
+              href="#locations"
+              >Locations</a
+            >
+            <div class="pt-2">
+              <button
+                class="w-full rounded-full bg-primary px-5 py-3 text-sm font-bold text-white shadow-sm hover:bg-primary/90 transition-colors"
+              >
+                Order Online
+              </button>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          <div
+            class="relative overflow-hidden rounded-2xl bg-secondary h-[560px]"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center"
+              data-alt="Close up of espresso pouring into a cup"
+              style="
+                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAA86c--yPrrajscdkBvPg-htIsh_P0lQH_JzU2p5qY4gBftsk-R_eDMBhufxPdDxo5DnZkjws6qQLE9UU4JjWHFJhk-SMySiaVeLZw1VUVpFyWuqjg8Wezfxzu3R0v46pe-b7O4WfIR2q2FLJVhtIYnJhHeai9yCTLDNxeftvH7VnemjLl3_DhDl5LJJNE1VuecC8ERkv7kPxaV3Q08SVESrMA6AGZK1oYCaJUEnR9GBWDj9GtahJj3O9ph8ygWD7AvUq6M1hnjs8&quot;);
+              "
+            ></div>
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent"
+            ></div>
+            <div
+              class="relative flex h-full max-w-2xl flex-col justify-center px-6 py-12 sm:px-12 lg:px-16"
+            >
+              <h1
+                class="text-4xl font-black tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl mb-6"
+              >
+                Crafted to <br /><span class="text-primary">Perfection</span>
+              </h1>
+              <p class="mb-8 max-w-lg text-lg text-gray-200 sm:text-xl">
+                Experience the finest artisanal coffee, roasted daily in small
+                batches for the perfect cup that fuels your passion.
+              </p>
+              <div class="flex flex-wrap gap-4">
+                <button
+                  class="inline-flex items-center rounded-full bg-primary px-8 py-3.5 text-base font-bold text-white shadow-lg transition-all hover:bg-primary/90 hover:-translate-y-0.5"
+                >
+                  Order Now
+                </button>
+                <button
+                  class="inline-flex items-center rounded-full bg-white/10 px-8 py-3.5 text-base font-bold text-white backdrop-blur-sm border border-white/20 transition-all hover:bg-white/20"
+                >
+                  View Menu
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Philosophy / About -->
+        <section
+          class="py-16 sm:py-24 bg-accent/30 dark:bg-gray-900/50 transition-colors duration-300"
+          id="philosophy"
+        >
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div
+              class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center"
+            >
+              <div class="flex flex-col gap-6">
+                <span
+                  class="text-primary font-bold tracking-wider uppercase text-sm"
+                  >Our Philosophy</span
+                >
+                <h2
+                  class="text-3xl font-black tracking-tight text-secondary dark:text-white sm:text-4xl lg:text-5xl"
+                >
+                  More Than Just <br />A Cup of Coffee
+                </h2>
+                <p
+                  class="text-lg text-secondary/80 dark:text-gray-300 leading-relaxed"
+                >
+                  We source the finest beans from sustainable farms and roast
+                  them in small batches to bring out unique flavor profiles. Our
+                  baristas are artisans who understand the science and soul of
+                  coffee extraction.
+                </p>
+                <ul class="space-y-4 mt-2">
+                  <li class="flex items-start gap-3">
+                    <span class="material-symbols-outlined text-primary mt-1"
+                      >eco</span
+                    >
+                    <div>
+                      <h4 class="font-bold text-secondary dark:text-white">
+                        Ethically Sourced
+                      </h4>
+                      <p class="text-sm text-secondary/70 dark:text-gray-400">
+                        Direct trade partnerships ensuring quality and fair
+                        wages.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="material-symbols-outlined text-primary mt-1"
+                      >local_fire_department</span
+                    >
+                    <div>
+                      <h4 class="font-bold text-secondary dark:text-white">
+                        Expertly Roasted
+                      </h4>
+                      <p class="text-sm text-secondary/70 dark:text-gray-400">
+                        Small batch techniques highlighting origin
+                        characteristics.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="material-symbols-outlined text-primary mt-1"
+                      >groups</span
+                    >
+                    <div>
+                      <h4 class="font-bold text-secondary dark:text-white">
+                        Community Focused
+                      </h4>
+                      <p class="text-sm text-secondary/70">
+                        A space designed for connection, creativity, and
+                        comfort.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <img
+                  alt="Coffee beans in hands"
+                  class="rounded-2xl shadow-lg w-full h-64 object-cover mt-8"
+                  data-alt="Hands holding fresh coffee beans"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOZVwXgw1ETEisrqRIANjE-JDz-vf3aVNx_YAk6aiSl_9T9Hg6u-Fkox7UF_O3Jf-oXwcxduEsYCbT54OM5k0314d8Z9N1be9uQsqUq-YbPZuzubI-0Fnn3ubk-H0gnSluXyH9l2VOBzMQRaYUpgk4UyIn40To7gIf_9O8-kxENHORto4sXY-Z1VGL3T6UvVle9UZNJNOV9w1Hvpwt459KuXjCLl7FF--__pPAWawpegdqOOMzzPlkYg1EWgzwaaLm7c09iDqwfew"
+                />
+                <img
+                  alt="Latte art preparation"
+                  class="rounded-2xl shadow-lg w-full h-64 object-cover"
+                  data-alt="Barista pouring latte art"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpSoKUmEg4iIX4YYNUJ8EvbWpOZGRANUZ7mIOgOxDpK7NwYuUwRN5mO_woaIza1oTWiDBJDNTrLT6Qm6ZgjlozgDza1aGKvPImwNrdirG-P9GD76D2jg-g1l9UVN1nBvRR5Qcwcd1GpTBkwee3-7RuL1pHgptc1Cwi8tV3RafwBaq4xXlWYT9mq_b21H-GxuNnXOAMPOOZNHZtZm2TtCsNm49IIwsJvz8lJPkV9TSHGJH16SptXI7wgnJDeF7w1FCj1g3VhhUqtOI"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Featured Menu -->
+        <section
+          class="py-16 sm:py-24 transition-colors duration-300"
+          id="menu"
+        >
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div
+              class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4"
+            >
+              <div>
+                <span
+                  class="text-primary font-bold tracking-wider uppercase text-sm dark:text-primary"
+                  >Curated Selection</span
+                >
+                <h2
+                  class="text-3xl font-black tracking-tight text-secondary dark:text-white sm:text-4xl mt-2"
+                >
+                  Signature Blends
+                </h2>
+              </div>
+              <a
+                class="text-primary font-bold hover:text-primary/80 flex items-center gap-1 group dark:text-primary"
+                href="#"
+              >
+                View Full Menu
+                <span
+                  class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <!-- Item 1 -->
+              <div
+                class="group rounded-2xl bg-white dark:bg-gray-800 border border-accent dark:border-gray-700 p-4 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div
+                  class="relative aspect-square overflow-hidden rounded-xl bg-accent dark:bg-gray-700 mb-4"
+                >
+                  <img
+                    alt="Classic Espresso"
+                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    data-alt="Double shot espresso in white cup"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLW6uBrHIPWtwJXoVgNyKrwrnhPXpp4VAnxiG3iYAUOkLos1n4a-bXfgWnU5hrkds99gee20a5fLdO34K3ljIk_RumtXfPMxwWjtnaWZ8mquzNGrDd9rmIthkmZXlUQDh1yUwq8f7282PgM5hUKn7n9ZuFA-SV-mjFPvMDEksAljSuxz-vxqCWUM8XN9i0HPQL3v6kbu-8OEsrc222Cdark351rEdp0pdFWdDDfIx37C1DYXeaQmLKioqcFR8LL2O5eJu3yVa2cw0"
+                  />
+                </div>
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-lg font-bold text-secondary dark:text-white">
+                    Classic Espresso
+                  </h3>
+                  <span class="font-bold text-primary">$3.50</span>
+                </div>
+                <p class="text-sm text-secondary/60 dark:text-gray-400 mb-4">
+                  Rich, intense, and full-bodied with a caramel crema.
+                </p>
+                <button
+                  class="w-full py-2 rounded-lg bg-accent dark:bg-gray-700 text-secondary dark:text-gray-200 font-semibold text-sm group-hover:bg-primary group-hover:text-white transition-colors"
+                >
+                  Add to Order
+                </button>
+              </div>
+              <!-- Item 2 -->
+              <div
+                class="group rounded-2xl bg-white border border-accent p-4 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div
+                  class="relative aspect-square overflow-hidden rounded-xl bg-accent mb-4"
+                >
+                  <img
+                    alt="Silk Latte"
+                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    data-alt="Latte with heart art on wooden table"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp8IIC4st0Dvw82wghHfD5GGhl_H3UIhCaLxr1hLwTxs03dc8mmi260VJv3POUj6n_5O_dUs9e1q8sG3vtcfP58jcFXZ5kepj2goNvxMbQTDxwUUGkSSm4a6TJYHZfTzX6jNJuENXmYcVTUHpbC2LV6MRtCMb59PRGxR73OJ100dGIqoFA1rHKnYl9hz262ER9vQslU-o_Aoz6vK5dXL38iN6X7ZD7jWOLlyCI9KdVdAWGtxAsVwscrJ058FI1FA_gaD6EpicAXk0"
+                  />
+                </div>
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-lg font-bold text-secondary dark:text-white">
+                    Silk Latte
+                  </h3>
+                  <span class="font-bold text-primary">$4.75</span>
+                </div>
+                <p class="text-sm text-secondary/60 mb-4">
+                  Smooth steamed milk poured over our signature espresso.
+                </p>
+                <button
+                  class="w-full py-2 rounded-lg bg-accent text-secondary font-semibold text-sm group-hover:bg-primary group-hover:text-white transition-colors"
+                >
+                  Add to Order
+                </button>
+              </div>
+              <!-- Item 3 -->
+              <div
+                class="group rounded-2xl bg-white border border-accent p-4 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div
+                  class="relative aspect-square overflow-hidden rounded-xl bg-accent mb-4"
+                >
+                  <img
+                    alt="Cappuccino"
+                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    data-alt="Cappuccino with cocoa powder dusting"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGuW2A4N5APiphU4JpqLnhFK0FhoRi3oHiDjv8l7cuUz77DV2I3T9HSN3lT7V4RoVvNErS3-tlqT_N-Oa0fIUaj0Gb6F25UYJkdE0yvjXigevOKXrdP5j0JkK8vYKhojDsoIIvVFcdz9goFiiBzRx3lqYvXczzEQKDVsY1I2DqX-FLMmayUd5BzdM5RAdAAhFusZ6z4uvk9GFSYX0GkE1hP7f56FEobooVITTZgCWj3k82oyptTx-p-FKoXyYrnnxL5hVQtaWrqck"
+                  />
+                </div>
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-lg font-bold text-secondary dark:text-white">
+                    Cappuccino
+                  </h3>
+                  <span class="font-bold text-primary">$4.50</span>
+                </div>
+                <p class="text-sm text-secondary/60 mb-4">
+                  Equal parts espresso, steamed milk, and velvety foam.
+                </p>
+                <button
+                  class="w-full py-2 rounded-lg bg-accent text-secondary font-semibold text-sm group-hover:bg-primary group-hover:text-white transition-colors"
+                >
+                  Add to Order
+                </button>
+              </div>
+              <!-- Item 4 -->
+              <div
+                class="group rounded-2xl bg-white border border-accent p-4 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div
+                  class="relative aspect-square overflow-hidden rounded-xl bg-accent mb-4"
+                >
+                  <img
+                    alt="Pour Over"
+                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    data-alt="Pour over coffee dripping into glass carafe"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6rNwRJ4NMX0zZg6fVFJWaNNdx0eLZPlbnLS9qSmH41Z5ss53rP1679nIKzCt71QmBBJx8W_qBspcJXDMimhujm752C3zklXFW7BHBfZjrn_FeiB5swrWybiI8wLmWN8YzsUZmo26EoI9tGp5sjXKhLC5yZXATJsLLvcjqSBLSehRzl26HzphzmzakmAhDf08m59QeTW3nGOw70iF-UC7k14mBELGZOHG-83QiCojv2t4XDZkHbQcVa04omuuyyJEFl4mDtX3mxzw"
+                  />
+                </div>
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-lg font-bold text-secondary dark:text-white">
+                    Manual Brew
+                  </h3>
+                  <span class="font-bold text-primary">$5.00</span>
+                </div>
+                <p class="text-sm text-secondary/60 mb-4">
+                  Single-origin beans manually brewed for clarity and nuance.
+                </p>
+                <button
+                  class="w-full py-2 rounded-lg bg-accent text-secondary font-semibold text-sm group-hover:bg-primary group-hover:text-white transition-colors"
+                >
+                  Add to Order
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Promo Banner -->
+        <section class="py-12">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div
+              class="relative overflow-hidden rounded-3xl bg-secondary px-6 py-16 sm:px-16 md:pt-20 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0"
+            >
+              <div
+                class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-24 lg:text-left z-10 relative"
+              >
+                <h2
+                  class="text-3xl font-black tracking-tight text-white sm:text-4xl"
+                >
+                  Start Your Morning Right.<br />Get 50% Off First Order.
+                </h2>
+                <p class="mt-6 text-lg leading-8 text-gray-300">
+                  Join our loyalty program today and experience premium coffee
+                  delivered to your door or ready for pickup.
+                </p>
+                <div
+                  class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start"
+                >
+                  <a
+                    class="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                    href="#"
+                    >Claim Offer</a
+                  >
+                  <a
+                    class="text-sm font-semibold leading-6 text-white flex items-center gap-1 group"
+                    href="#"
+                    >Learn more
+                    <span
+                      class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform"
+                      >arrow_forward</span
+                    ></a
+                  >
+                </div>
+              </div>
+              <div class="relative mt-16 h-80 lg:mt-8">
+                <!-- Abstract pattern decoration -->
+                <div
+                  class="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
+                  style="
+                    height: 600px;
+                    transform: rotate(-12deg) translate(20px, -50px);
+                  "
+                ></div>
+                <img
+                  alt="Coffee bag and cup"
+                  class="absolute left-0 top-0 w-[28rem] max-w-none rounded-2xl bg-white/5 ring-1 ring-white/10 object-cover shadow-2xl"
+                  data-alt="Paper coffee cup next to beans"
+                  height="1080"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiJobdCtVO4lLcbMpog-1qla4g9aCvlspwIBvlhIotRPl309w92NI_I_ZMFVjFTWR6xrUujTpUH51vjz2H15YEpqs5RKt0kwFQIjjGR13qtzuVNhVe6xKKr7-IHjFrzxXdA6_CpMmqY4oogVZmZv__T1CaFOUTIgdggd0x1GBUTSi8MRAJnBKoJo1PJZohpOuxYwaH7ZuRd2Jgdtsdz6gF3_jDZF9hAj2_iUy8haNMXZFtdqhb9Lk6yZdzLCklcUv8F-7d8NYqXvg"
+                  style="transform: rotate(-6deg) translate(40px, 40px)"
+                  width="1824"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Testimonials -->
+        <section
+          class="py-16 sm:py-24 bg-accent/30 dark:bg-gray-900/50 transition-colors duration-300"
+        >
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+              <h2
+                class="text-3xl font-black tracking-tight text-secondary dark:text-white sm:text-4xl"
+              >
+                What Our Guests Say
+              </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div
+                class="flex flex-col gap-4 p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-accent/50 dark:border-gray-700 relative"
+              >
+                <span
+                  class="material-symbols-outlined text-primary/20 text-6xl absolute top-4 right-4"
+                  >format_quote</span
+                >
+                <p
+                  class="text-secondary/80 dark:text-gray-300 italic relative z-10"
+                >
+                  "The atmosphere is perfect for getting work done. The wifi is
+                  fast, and the pour-over selection is unmatched in the city."
+                </p>
+                <div class="flex items-center gap-4 mt-auto">
+                  <div
+                    class="h-10 w-10 rounded-full bg-gray-200 bg-cover bg-center"
+                    data-alt="Portrait of Sarah Jenkins"
+                    style="
+                      background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuD-rGwBmgIR0gBJHHh-gU3yKwa2uzvsC1aoLrnMs1-Vi5IzpAjl2BF7RCBcmPIZA9K0jNLQZNYcIYdU2QPS2bqSpH_73bvPHPgFyxsaR41Uo6F4yD1K9esBZBBLhSaA6ailZVCVLc7VjVGIVu0XAdPjGE2Gp-JNM0bU3etKu4agwUGwWtZF7BI_gAhXUX30pf9YooB3VfMGzPSVOpO6bxWCNtEnb0uASvY9RmULuRRKG8S_q_RljRxMK6YmtQpi6iHnwdkurJkE6E4&quot;);
+                    "
+                  ></div>
+                  <div>
+                    <p class="font-bold text-sm text-secondary dark:text-white">
+                      Sarah Jenkins
+                    </p>
+                    <p class="text-xs text-secondary/60 dark:text-gray-400">
+                      Remote Designer
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex flex-col gap-4 p-8 bg-white rounded-2xl shadow-sm border border-accent/50 relative"
+              >
+                <span
+                  class="material-symbols-outlined text-primary/20 text-6xl absolute top-4 right-4"
+                  >format_quote</span
+                >
+                <p class="text-secondary/80 italic relative z-10">
+                  "Finally, a place that takes roasting seriously. You can taste
+                  the difference in every cup. The staff is incredibly
+                  knowledgeable."
+                </p>
+                <div class="flex items-center gap-4 mt-auto">
+                  <div
+                    class="h-10 w-10 rounded-full bg-gray-200 bg-cover bg-center"
+                    data-alt="Portrait of Marcus Chen"
+                    style="
+                      background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuA9XZ6U9sW7Sq-J7T1U5RyQ3iccxJ0rV2E3UBG65FIUbK1LjP9c1-X0dzHjXnWD2fO_xx0y2VOqTi3Bt9hsuK9woUyUOAqWNr-fbS7J7sz9PBZDb579DttCBsSnxPDnRMulZpku9k4iHZD74Rd28diUQvmF-kUE6JzbPftPN_qOOd6f81Lry_oWPkrgoDQyC9AoHRjGlJqmnRlzRu5Ici8mB1YYpnm4W3SR9tZP09H_lh24CcXwzDomk-uUP1me3xm4TfHaOu2T-fY&quot;);
+                    "
+                  ></div>
+                  <div>
+                    <p class="font-bold text-sm text-secondary dark:text-white">
+                      Marcus Chen
+                    </p>
+                    <p class="text-xs text-secondary/60 dark:text-gray-400">
+                      Coffee Enthusiast
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex flex-col gap-4 p-8 bg-white rounded-2xl shadow-sm border border-accent/50 relative"
+              >
+                <span
+                  class="material-symbols-outlined text-primary/20 text-6xl absolute top-4 right-4"
+                  >format_quote</span
+                >
+                <p class="text-secondary/80 italic relative z-10">
+                  "My go-to spot for morning meetings. The pastries are fresh,
+                  and the seasonal lattes are always a delightful surprise."
+                </p>
+                <div class="flex items-center gap-4 mt-auto">
+                  <div
+                    class="h-10 w-10 rounded-full bg-gray-200 bg-cover bg-center"
+                    data-alt="Portrait of Elena Rodriguez"
+                    style="
+                      background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuABfoR32R39_CS23kS4P9UNP30vNAjMQFle7UMiUWwSPzystGQd7uV1mw8I-dnXmi0jF7EKovI4vWhpXnA8i4ZsoBs4UhH222e-YxFfZS_K3diXmwNtFki00g-mXRiWSFnxZ8DHSfkNxaDT46aLUU0gA33KB36_yFhGrEK80Sg5lytz3STsHU_PGnU6sC8PF8I1VRcl_HnsAhur8IO0BJvBvJxruoAxFQMiBbeGR27YSuiiSL6j7zjaDw-XJ39DD98fGWLKw6OTn_Y&quot;);
+                    "
+                  ></div>
+                  <div>
+                    <p class="font-bold text-sm text-secondary dark:text-white">
+                      Elena Rodriguez
+                    </p>
+                    <p class="text-xs text-secondary/60 dark:text-gray-400">
+                      Marketing Director
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Location & Contact -->
+        <section class="py-16 sm:py-24" id="locations">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div
+              class="overflow-hidden rounded-3xl bg-secondary shadow-2xl lg:grid lg:grid-cols-2"
+            >
+              <div
+                class="p-8 sm:p-12 lg:px-16 lg:py-20 flex flex-col justify-center"
+              >
+                <h2
+                  class="text-3xl font-black tracking-tight text-white sm:text-4xl mb-8"
+                >
+                  Visit Our Flagship
+                </h2>
+                <div class="space-y-6">
+                  <div class="flex items-start gap-4">
+                    <div class="rounded-lg bg-primary/20 p-2 text-primary">
+                      <span class="material-symbols-outlined">location_on</span>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-white">Downtown</h3>
+                      <p class="mt-1 text-gray-400">
+                        123 Artisan Avenue, Suite 100<br />Metropolis, NY 10012
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-4">
+                    <div class="rounded-lg bg-primary/20 p-2 text-primary">
+                      <span class="material-symbols-outlined">schedule</span>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-white">Hours</h3>
+                      <p class="mt-1 text-gray-400">
+                        Mon-Fri: 7am - 8pm<br />Sat-Sun: 8am - 9pm
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-4">
+                    <div class="rounded-lg bg-primary/20 p-2 text-primary">
+                      <span class="material-symbols-outlined">call</span>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-white">Contact</h3>
+                      <p class="mt-1 text-gray-400">
+                        (555) 123-4567<br />hello@brewandbean.com
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="relative h-80 sm:h-96 lg:h-full min-h-[320px] bg-gray-700 overflow-hidden rounded-b-3xl lg:rounded-bl-none lg:rounded-r-3xl"
+              >
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.7252202952436!2d113.49210119949032!3d-7.157733561603917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd77d005c501d67%3A0xbb7ac0368d16db58!2sIndigo%20Area!5e0!3m2!1sid!2sid!4v1772548954514!5m2!1sid!2sid"
+                  class="absolute inset-0 w-full h-full"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- Footer -->
+      <footer
+        class="bg-background-light dark:bg-background-dark border-t border-accent dark:border-gray-700 pt-16 pb-8 transition-colors duration-300"
+      >
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-1">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="material-symbols-outlined text-primary text-2xl"
+                  >local_cafe</span
+                >
+                <span class="text-lg font-bold text-secondary dark:text-white"
+                  >Brew &amp; Bean</span
+                >
+              </div>
+              <p class="text-sm text-secondary/60 dark:text-gray-400">
+                Crafting moments of connection through exceptional coffee since
+                2015.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-bold text-secondary dark:text-white mb-4">
+                Explore
+              </h3>
+              <ul
+                class="space-y-2 text-sm text-secondary/70 dark:text-gray-400"
+              >
+                <li><a class="hover:text-primary" href="#">Our Story</a></li>
+                <li><a class="hover:text-primary" href="#">Menu</a></li>
+                <li><a class="hover:text-primary" href="#">Wholesale</a></li>
+                <li><a class="hover:text-primary" href="#">Careers</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-bold text-secondary dark:text-white mb-4">
+                Support
+              </h3>
+              <ul
+                class="space-y-2 text-sm text-secondary/70 dark:text-gray-400"
+              >
+                <li><a class="hover:text-primary" href="#">Contact Us</a></li>
+                <li>
+                  <a class="hover:text-primary" href="#">Shipping Policy</a>
+                </li>
+                <li><a class="hover:text-primary" href="#">Returns</a></li>
+                <li><a class="hover:text-primary" href="#">FAQs</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-bold text-secondary dark:text-white mb-4">
+                Stay Updated
+              </h3>
+              <div class="flex gap-2">
+                <input
+                  class="w-full rounded-lg border-accent dark:border-gray-600 bg-white dark:bg-gray-800 dark:text-gray-200 px-3 py-2 text-sm focus:border-primary focus:ring-primary"
+                  placeholder="Enter your email"
+                  type="email"
+                />
+                <button
+                  class="rounded-lg bg-primary px-4 py-2 text-white hover:bg-primary/90"
+                >
+                  <span class="material-symbols-outlined text-sm"
+                    >arrow_forward</span
+                  >
+                </button>
+              </div>
+              <div class="mt-6 flex gap-4">
+                <a class="text-secondary/60 hover:text-primary" href="#"
+                  ><svg class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
+                    <path
+                      d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+                    ></path></svg
+                ></a>
+                <a class="text-secondary/60 hover:text-primary" href="#"
+                  ><svg class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.072 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                    ></path></svg
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="border-t border-accent dark:border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+          >
+            <p class="text-xs text-secondary/50">
+              © 2025 Brew &amp; Bean. All rights reserved.
+            </p>
+            <div
+              class="flex gap-6 text-xs text-secondary/50 dark:text-gray-500"
+            >
+              <a class="hover:text-primary" href="#">Privacy</a>
+              <a class="hover:text-primary" href="#">Terms</a>
+              <a class="hover:text-primary" href="#">Sitemap</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      const toggle = document.getElementById("darkModeToggle");
+      const html = document.documentElement;
+      const darkIcon = toggle.querySelector(".dark-icon");
+      const lightIcon = toggle.querySelector(".light-icon");
+
+      function applyTheme(dark) {
+        if (dark) {
+          html.classList.add("dark");
+          darkIcon.classList.remove("hidden");
+          lightIcon.classList.add("hidden");
+        } else {
+          html.classList.remove("dark");
+          darkIcon.classList.add("hidden");
+          lightIcon.classList.remove("hidden");
+        }
+      }
+
+      // Init from localStorage or system preference
+      const stored = localStorage.getItem("theme");
+      if (
+        stored === "dark" ||
+        (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        applyTheme(true);
+      } else {
+        applyTheme(false);
+      }
+
+      toggle.addEventListener("click", () => {
+        const isDark = html.classList.toggle("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        applyTheme(isDark);
+      });
+
+      // Mobile menu toggle
+      const mobileToggle = document.getElementById("mobileMenuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const openIcon = mobileToggle.querySelector(".menu-open-icon");
+      const closeIcon = mobileToggle.querySelector(".menu-close-icon");
+
+      mobileToggle.addEventListener("click", () => {
+        const isNowHidden = mobileMenu.classList.toggle("hidden");
+        openIcon.classList.toggle("hidden", !isNowHidden);
+        closeIcon.classList.toggle("hidden", isNowHidden);
+      });
+
+      // Close mobile menu when a link is clicked
+      document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          openIcon.classList.remove("hidden");
+          closeIcon.classList.add("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>
